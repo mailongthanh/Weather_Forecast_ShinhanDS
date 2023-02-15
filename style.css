@@ -1,0 +1,308 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* GENERAL COLOR */
+  --tx-color-1: #000;
+  --tx-color-2: #ecf9ff;
+  --tx-color-3: #0059b3;
+  --tx-color-4: #aaaaaa;
+
+  /*BACKGROUND COLOR*/
+  --bg-color-1: #0059b3;
+  --bg-color-2: #fff;
+
+  /*SHAWDOW COLOR*/
+  --sd-color-1: rgba(0, 0, 0, 0.1);
+
+  /* FORMAT TEXT*/
+  --letter_spacing: 3px;
+
+  /*CUSTOM SLIDER*/
+  --tx-slider-section-title: #212529;
+  --bg-slider-section: rgb(250, 250, 250);
+
+  --bg-slider-card-4: #fff;
+  --tx-slider-card-4: #0059b3;
+
+  /*BREAKPOINT*/
+  --sr-sm: 768px;
+  --sr-md: 992px;
+  --sr-lg: 1200px;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: var(--bg-color-2);
+}
+
+/*HERO*/
+#hero {
+  position: relative;
+  padding-left: 0;
+}
+
+#hero_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+
+  background-image: url("https://www.wallpaperup.com/uploads/wallpapers/2014/02/28/281803/35056e54407cb47e85c477d3879800a3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0 25px 25px 0;
+}
+
+#hero_wrapper.error {
+  animation-duration: 1s;
+  animation-name: slidein;
+}
+
+#hero_wrapper.success {
+  animation-duration: 1s;
+  animation-name: slideout;
+}
+
+/* #hero_wrapper::after {
+  content: "";
+  background-image: url("https://www.wallpaperup.com/uploads/wallpapers/2014/02/28/281803/35056e54407cb47e85c477d3879800a3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.7;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+
+  border-radius: 0 25px 25px 0;
+} */
+
+#hero .hero-container {
+  width: 50%;
+}
+
+#hero .hero-container h2 {
+  color: var(--tx-color-2);
+  letter-spacing: var(--letter_spacing);
+  text-align: center;
+  margin-bottom: 50px;
+  font-weight: bold;
+}
+
+.hero-container_sm {
+  background-image: url("https://www.wallpaperup.com/uploads/wallpapers/2014/02/28/281803/35056e54407cb47e85c477d3879800a3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero-container_sm h2 {
+  color: var(--tx-color-2);
+  letter-spacing: var(--letter_spacing);
+  text-align: center;
+  margin-bottom: 50px;
+  font-weight: bold;
+}
+
+/*ALERT*/
+#alert {
+  color: red;
+  font-weight: bold;
+  visibility: hidden;
+}
+
+#alert.visible {
+  opacity: 1;
+  transition: 3s;
+  visibility: visible;
+}
+
+#alert.hidden {
+  transition: 0s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/*WEATHER FORECAST*/
+#weatherForecast {
+  color: var(--tx-color-3);
+  padding-left: 50px;
+  opacity: 1;
+  transition: 4s;
+  visibility: visible;
+}
+
+#weatherForecast.visible {
+  opacity: 1;
+  transition: 3s;
+  visibility: visible;
+  display: block;
+}
+
+#weatherForecast.hidden {
+  transition: 0s;
+  opacity: 0;
+  display: none;
+}
+
+/*CURRENT WEATHER FORECAST*/
+#current_forecast-container .card {
+  background-color: var(--bg-color-1);
+}
+#current_status {
+  color: var(--tx-color-2);
+}
+
+#current_condition #current_condition-Txt {
+  margin-right: 10px;
+}
+
+#current_information {
+  color: var(--tx-color-2);
+  font-weight: bold;
+}
+
+/*VERTICAL LINE*/
+#vertical_line {
+  border-left: 4px solid var(--tx-color-2);
+  height: 150px;
+}
+
+/*SWIPER*/
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  background: var(--bg-color-2);
+  display: flex;
+  align-items: center;
+}
+
+.swiper-slide .card {
+  width: 300px;
+  height: 250px;
+  background-color: var(--bg-color-2);
+
+  border: none;
+}
+
+.swiper-slide .card .content {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 20px var(--sd-color-1);
+  border-radius: 5px;
+
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.swiper-slide .card:active .content {
+  transform: rotateY(180deg);
+  transition: transform 0.5s;
+}
+
+.swiper-slide .card .content .front,
+.swiper-slide .card .content .back {
+  padding: 16px;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: var(--bg-color-2);
+  border-radius: 5px;
+  backface-visibility: hidden;
+}
+
+.swiper-slide .card .content .back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-color-1);
+  font-size: 14px;
+  color: var(--tx-color-2);
+  transform: rotateY(180deg);
+}
+
+.others_condition-Txt {
+  font-size: 15px;
+}
+
+.others_condition-Img {
+  margin-top: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.others_information {
+  font-weight: bold;
+}
+
+/*CUSTOM ELEMENT*/
+.forecast-header {
+  color: var(--tx-color-3);
+  margin-top: 50px;
+}
+
+.forecase-body {
+  margin-top: 16px;
+  padding: 16px;
+}
+
+/*CUSTOM ANIMATION*/
+
+@keyframes slidein {
+  from {
+    width: 60%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes slideout {
+  from {
+    width: 200%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/*REPONSIVE*/
+@media (max-width: 768px) {
+  #hero {
+    width: 100%;
+  }
+  #hero_wrapper {
+    width: 100%;
+    position: relative;
+  }
+}
+
+@media (min-width: 768px) {
+  #hero_wrapper {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-image: url("https://www.wallpaperup.com/uploads/wallpapers/2014/02/28/281803/35056e54407cb47e85c477d3879800a3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0 25px 25px 0;
+  }
+} ;

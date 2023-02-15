@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!--BOOTSTRAP-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+
+    <!--FONT AWESOME-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!--SwiperJS css-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+
+    <!--CSS-->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row" style="height: 100vh">
+        <!------------------------>
+
+        <!--START HERO COMPONENT-->
+        <div id="hero" class="">
+          <div id="hero_wrapper">
+            <div class="hero-container">
+              <h2>Weather forecast</h2>
+              <div class="input-group mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="search_input"
+                  placeholder="Location"
+                  aria-label="Location"
+                  aria-describedby="button-addon2"
+                />
+                <button
+                  class="btn btn-outline-light bg-primary search_button"
+                  type="button"
+                  id="button-addon2"
+                  onclick="searchHandler()"
+                >
+                  Search
+                </button>
+              </div>
+              <div id="alert">*Can't find location, please retry!</div>
+            </div>
+          </div>
+        </div>
+        <!--END HERO COMPONENT-->
+
+        <!--START WEATHER FORECAST -->
+        <div id="weatherForecast" class="col-md-5 col-sm-12">
+          <!------------------------>
+
+          <!--START CURRENT WEATHER FORECAST-->
+          <div id="current_forecast-container">
+            <h2 class="forecast-header">Today</h2>
+            <div
+              id="forecast-body"
+              class="card shadow-lg p-3 mb-5 rounded border-0"
+            >
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-lg-6 col-12 col-sm-6" id="current_status">
+                    <div class="d-flex justify-content-between">
+                      <span id="current_temperature"></span>
+                      <div class="text-end">
+                        <div>
+                          <i class="fa-solid fa-location-dot"></i
+                          ><span class="m-1" id="current_location"
+                            >location</span
+                          >
+                        </div>
+                        <div id="current_country">country</div>
+                      </div>
+                    </div>
+                    <div
+                      id="current_condition"
+                      class="d-flex align-items-center"
+                    >
+                      <h4 id="current_condition-Txt"></h4>
+                      <img id="currrent_condition-Img" />
+                    </div>
+                    <div id="current_update-time"></div>
+                  </div>
+                  <!-- <div
+                    id="vertical_line"
+                    class="col-lg-1 d-lg-block d-none"
+                  ></div> -->
+                  <div
+                    class="col-lg-5 col-12 col-sm-6"
+                    id="current_information"
+                  >
+                    <div id="realFeel"></div>
+                    <div id="humidity"></div>
+                    <div id="UV_index"></div>
+                    <div id="cloud_cover"></div>
+                    <div id="wind_vecolity"></div>
+                    <div id="visibility"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--END CURRENT WEATHER FORECAST-->
+
+          <!--START OTHERS WEATHER FORECAST-->
+          <div id="others_focecast-container">
+            <h2 class="forecast-header">Daily</h2>
+            <!--START OTHERS WEATHER SWIPER-->
+
+            <!-- Slider main container -->
+            <div class="swiper mySwiper">
+              <div class="swiper-wrapper p-3 mb-5"></div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <!--END OTHERS WEATHER FORECAST-->
+
+          <!--START WEATHER FORECAST CHART-->
+          <div id="weatherForecast-chart">
+            <h2 class="forecast-header">Temperature</h2>
+            <div width="100%" height="auto">
+              <canvas id="myChart"></canvas>
+            </div>
+          </div>
+          <!--END WEATHER FORECAST CHART-->
+
+          <!------------------------>
+        </div>
+        <!--END  WEATHER FORECAST -->
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
